@@ -1,0 +1,122 @@
+.photograph
+  // html で書いた例
+  <h3>写真展 その1</h3>
+  <div class="gallery">
+    <a href="images/tora.jpg" title="The Cleaner">
+      <img src="images/tora_s.jpg">
+    </a>
+    <a href="images/tsuru.jpg" title="Winter Dance">
+      <img src="images/tsuru_s.jpg">
+    </a>
+    <a href="images/zou.jpg" title="The Uninvited Guest">
+      <img src="images/zou_s.jpg">
+    </a>
+    <a href="images/saru.jpg" title="Oh no, not again!">
+      <img src="images/saru_s.jpg">
+    </a>
+    <a href="images/hakucho.jpg" title="Swan Lake">
+      <img src="images/hakucho_s.jpg">
+    </a>
+    <a href="images/araiguma.jpg" title="The Shake">
+      <img src="images/araiguma_s.jpg">
+    </a>
+    <a href="images/kuma.jpg" title="Who's that, mommy?">
+      <img src="images/kuma_s.jpg">
+    </a>
+  </div>
+
+  // slim で書いた例
+  h3 写真展 その2
+  .gallery
+    a href="images/tora.jpg" title="The Cleaner"
+      img src="images/tora_s.jpg"
+    a href="images/tsuru.jpg" title="Winter Dance"
+      img src="images/tsuru_s.jpg"
+    a href="images/zou.jpg" title="The Uninvited Guest"
+      img src="images/zou_s.jpg"
+    a height="75" href="images/saru.jpg" title="Oh no, not again!"
+      img src="images/saru_s.jpg"
+    a href="images/hakucho.jpg" title="Swan Lake"
+      img src="images/hakucho_s.jpg"
+    a href="images/araiguma.jpg" title="The Shake"
+      img src="images/araiguma_s.jpg"
+    a href="images/kuma.jpg" title="Who's that, mommy?"
+      img src="images/kuma_s.jpg"
+
+  // helper メソッドを使って書いた例
+  h3 写真展 その3
+  .gallery
+    = link_to "images/tora.jpg", title: "The Cleaner"
+      = image_tag "tora_s.jpg"
+    = link_to "images/tsuru.jpg", title: "Winter Dance"
+      = image_tag "tsuru_s.jpg"
+    = link_to "images/zou.jpg", title: "The Uninvited Guest"
+      = image_tag "zou_s.jpg"
+    = link_to "images/saru.jpg", title: "Oh no, not again!"
+      = image_tag "saru_s.jpg"
+    = link_to "images/hakucho.jpg", title: "Swan Lake"
+      = image_tag "hakucho_s.jpg"
+    = link_to "images/araiguma.jpg", title: "The Shake"
+      = image_tag "araiguma_s.jpg"
+    = link_to "images/kuma.jpg", title: "Who's that, mommy?"
+      = image_tag "kuma_s.jpg"
+
+  // データを格納した配列を使って書いた例
+  h3 写真展 その4
+  .gallery
+    - doubutsu = [ { picture: "tora",     title: "The Cleaner" },
+                   { picture: "tsuru",    title: "Winter Dance" },
+                   { picture: "zou",      title: "The Uninvited Guest" },
+                   { picture: "saru",     title: "Oh no, not again!" },
+                   { picture: "hakucho",  title: "Swan Lake" },
+                   { picture: "araiguma", title: "The Shake" },
+                   { picture: "kuma",     title: "Who's that, mommy?" } ]
+
+    - doubutsu.each do |kemono|
+      - picture = kemono[:picture]
+      - title   = kemono[:title]
+      = link_to "images/#{picture}.jpg", title: title
+        = image_tag "#{picture}_s.jpg"
+
+  // 断片ファイル(partialファイル)に、データを渡して書いた例
+  h3 写真展 その5
+  .gallery
+    = partial "gallery", locals: { picture: "tora",     title: "The Cleaner" }
+    = partial "gallery", locals: { picture: "tsuru",    title: "Winter Dance" }
+    = partial "gallery", locals: { picture: "zou",      title: "The Uninvited Guest" }
+    = partial "gallery", locals: { picture: "saru",     title: "Oh no, not again!" }
+    = partial "gallery", locals: { picture: "hakucho",  title: "Swan Lake" }
+    = partial "gallery", locals: { picture: "araiguma", title: "The Shake" }
+    = partial "gallery", locals: { picture: "kuma",     title: "Who's that, mommy?" }
+
+  // データ配列から、eachメソッドを使って、
+  // 個々のデータを、断片ファイル(partialファイル)に渡す例
+  h3 写真展 その6
+  .gallery
+    - doubutsu = [ { picture: "tora",     title: "The Cleaner" },
+                   { picture: "tsuru",    title: "Winter Dance" },
+                   { picture: "zou",      title: "The Uninvited Guest" },
+                   { picture: "saru",     title: "Oh no, not again!" },
+                   { picture: "hakucho",  title: "Swan Lake" },
+                   { picture: "araiguma", title: "The Shake" },
+                   { picture: "kuma",     title: "Who's that, mommy?" } ]
+
+    - doubutsu.each do |kemono|
+      = partial "gallery", locals: kemono
+
+  // データファイル(data/doubutsu.yml)を使った例
+  h3 写真展 その7
+  .gallery
+    - data.doubutsu.each do |kemono|
+      = partial "gallery", locals: kemono
+
+  // データファイル(data/doubutsu.yml)と、カスタムヘルパーを使った例
+  h3 写真展 その8
+  .gallery
+    - data.doubutsu.each do |kemono|
+      = animal_photo kemono
+
+  // データファイル(data/doubutsu.yml)と、カスタムヘルパーを使った例
+  // 全てをカスタムヘルパーで生成する例
+  h3 写真展 その9
+  = animal_photo2

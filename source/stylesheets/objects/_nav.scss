@@ -1,0 +1,24 @@
+/* ナビゲーションメニュー */
+nav {
+  grid-row: head;
+  justify-self: center;
+  align-self: end;
+  ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 20px;
+    li a {
+      @include link_style($font-size: 12px);
+    }
+  }
+}
+
+/* デスクトップ版 */
+@media(min-width: 768px) {
+  nav {
+    justify-self: end;
+    align-self: center;
+  }
+}

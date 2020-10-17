@@ -1,0 +1,47 @@
+doctype html
+html
+  head
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    title
+      = current_page.data.title || "さくら商会"
+
+    / ファビコンの指定
+    = favicon_tag 'favicon.ico'
+    = favicon_tag 'apple-touch-icon-180x180.png',
+              rel:   'apple-touch-icon',
+              sizes: '180x180',
+              type:  'image/png'
+
+    / 検索エンジン用にサイトの紹介文章
+    meta name="description" content=""
+
+    / fontawesome
+    link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+
+    / jQuery
+    script src="https://code.jquery.com/jquery-3.5.1.min.js"
+
+    / Fomantic-UI
+    link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.css"
+    script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.js"
+
+    / IE Buster
+    script src="https://cdn.jsdelivr.net/npm/ie-buster@1.1.0/dist/ie-buster.min.js"
+
+    / stylesheet の読み込み (style.cssを読み込む)
+    = stylesheet_link_tag "style"
+
+    / JavaScript (site.jsを読み込む)
+    = javascript_include_tag "site"
+
+  body.site
+    / 部分ファイル _header.slim を読み込む
+    / = partial 'header'
+
+    / この = yield が、index.html.slim等、各々の内容に置き換えられる
+    .ui.container
+      = yield
+
+    / 部分ファイル _footer.slim を読み込む
+    / = partial 'footer'

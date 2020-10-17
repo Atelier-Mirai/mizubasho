@@ -1,0 +1,46 @@
+/ 上部ナビゲーションメニュー
+.ui.top.fixed.menu.sitepage_header.computer.only
+  .ui.container
+    .logo_mark
+      = link_to image_tag('logo.jpg', alt: 'logo', height: '64px'), '#', id: "logo"
+
+    .right.menu
+      .ui.dropdown.item
+        | 会社案内
+        i.dropdown.icon
+        .menu
+          = link_to '経営理念', '#', class: 'ui item'
+          = link_to '会社沿革', '#', class: 'ui item'
+          = link_to '会社概要', '#', class: 'ui item'
+          .divider
+          = link_to '採用情報', '#', class: 'ui item'
+      .ui.dropdown.item
+        | 交通案内
+        i.dropdown.icon
+        .menu
+          = link_to '本社', '#', class: 'ui item'
+          .divider
+          = link_to '支店1', '#', class: 'ui item'
+          = link_to '支店2', '#', class: 'ui item'
+          = link_to '支店3', '#', class: 'ui item'
+      = link_to 'お問い合わせ', '#', class: 'ui item'
+
+
+
+/ 普通のヘッダーデザイン
+/ header
+/   .logo
+/     a href="index.html"
+/       img src="images/logo.png"
+/       | BEACH
+/
+/     / 以下のようにも書ける
+/     / = link_to 'index.html' do
+/     /   = image_tag 'logo.png'
+/     /   | BEACH
+/
+/ nav
+/   ul
+/     li = link_to 'トップ', '#'
+/     li = link_to 'サイトについて', '#about'
+/     li = link_to 'お問い合わせ', '#contact'

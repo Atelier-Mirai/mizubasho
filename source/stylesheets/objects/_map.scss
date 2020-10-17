@@ -1,0 +1,20 @@
+.map {
+  grid-row: map;
+  box-sizing: border-box;
+  width: 100%;
+  .inner {
+    overflow: hidden;
+    position: relative;
+    padding-top: 150%;
+    @media (min-width: 768px) {
+      padding-top: calc(100% * 9 / 16);
+    }
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

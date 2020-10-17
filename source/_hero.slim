@@ -1,0 +1,38 @@
+figure.hero
+  // スライドショー
+  .swiper-container
+    .swiper-wrapper
+      .swiper-slide
+        = image_tag 'sea_033.jpg', alt: '誰もいない浜辺'
+      .swiper-slide
+        = image_tag 'sea_119.jpg', alt: '夜明けの海'
+      .swiper-slide
+        = image_tag 'sea_141.jpg', alt: '断崖を望む'
+
+  h1.title
+    .lefted.text
+      | 心落ち着く
+    .centered.text
+      | 海辺でのひとときを
+    .righted.text
+      | あなたに
+
+  p.subtitle
+    = link_to '静かに流れる豊かさを始める', '#service'
+
+
+// Initialize Swiper
+javascript:
+  let swiper = new Swiper('.swiper-container', {
+    spaceBetween: 30,
+    effect: 'fade',
+    autoplay: {     // 自動再生
+      delay: 7000,  // 7000msで次のスライドに
+                    // 利用者の操作により自動再生を停止可
+      disableOnInteraction: true
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });

@@ -1,5 +1,11 @@
+require "uglifier"
+
 # 自動再読み込み
 activate :livereload
+
+# 相対URLを使う
+activate :relative_assets
+set :relative_links, true
 
 # ベンダープリフィックス付与
 activate :autoprefixer do |prefix|
@@ -21,9 +27,16 @@ configure :build do
   activate :minify_html
   # CSS 圧縮
   activate :minify_css
-  # # JavaScript 圧縮
-  activate :minify_javascript
-  # # イメージ 圧縮
+  # JavaScript 圧縮
+  activate :minify_javascript,
+    compressor: proc {
+      ::Uglifier.new(
+        :mangle => {:toplevel => true},
+        :compress => {:unsafe => true},
+        :harmony => true
+      )
+    }
+  # イメージ 圧縮
   activate :imageoptim
   # アセットファイルの URL にハッシュを追加
   activate :asset_hash

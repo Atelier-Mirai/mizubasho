@@ -17,10 +17,6 @@ set :layout, 'site'
 page 'index.html', layout: 'top'
 page 'no_layout.html', layout: false
 
-# 相対URLを使う
-activate :relative_assets
-set :relative_links, true
-
 # ビルド時の設定
 configure :build do
   # HTML 圧縮

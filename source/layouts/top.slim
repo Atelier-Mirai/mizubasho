@@ -3,13 +3,13 @@ html
   head
     / 文字コードの指定
     meta charset="utf-8"
-    / ビューポート(視野)を記述することで、iPhoneでも見やすくできる
-    meta name="viewport" content="width=device-width, initial-scale=1"
+    / ビューポート(視野)の記述。(iPhoneでの快適な閲覧用)
+    meta name="viewport" content="width=device-width"
     / 表題の設定 ブラウザのタブに表示される
     title
       = current_page.data.title || "さくら商会"
 
-    / ファビコン(小さなアイコン)の指定
+    / ファビコン(小さなアイコン)とアップルタッチアイコンの指定
     / https://ao-system.net/favicongenerator/ で作成できる
     = favicon_tag 'favicon.ico'
     = favicon_tag 'apple-touch-icon-180x180.png',
@@ -17,39 +17,40 @@ html
               sizes: '180x180',
               type:  'image/png'
 
-    / 検索エンジン用にサイトの紹介文章
-    meta name="description" content="さくら商会はお花見など各種イベントで皆様の楽しい人生を演出しています。(Mac120文字, iPhone70文字が目安)"
+    / 検索エンジン用にサイトの紹介文章 目安80文字
+    meta name="description" content="さくら商会はお花見など各種イベントで皆様の楽しい人生を演出しています。"
 
     / Font Awesome フォントアイコン(≒絵文字)が使えるようになる
-    link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+    link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
 
     / jQuery JavaScriptのための便利なライブラリ
-    script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
 
     / Fomantic-UI CSSフレームワーク
-    link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.css"
-    script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.js"
+    link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"
 
     / IE Buster IE利用者へ警告表示
     script nomodule="nomodule" src="https://cdn.jsdelivr.net/npm/ie-buster@2.0.1/dist/ie-buster.min.js"
-    script nomodule="nomodule" ieBuster.init()
+    / script nomodule="nomodule" ieBuster.init()
+    script nomodule="nomodule" ieBuster.init({
+      mainText:   "ご利用の Internet Explorer は非推奨環境です。最新の Firefox をお使い下さい。",
+      linkText:   "Download",
+      linkUrl:    "https://www.mozilla.org/ja/firefox/new/",
+      linkNewTab: false,
+      appStyles:  { top: "auto", bottom: "0" },
+      cardStyles: { maxWidth: "540px", borderRadius: "8px" },
+      textStyles: { fontWeight: "700" },
+      linkStyles: { background: "purple", borderRadius: "4px" }});
 
     / Smooth Scroll ページ内リンクをクリックすると滑らかにスクロールする
     script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"
 
-    / Swiper 写真を切り替えるカルーセル(回転木馬)を実現
-    link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"
-    script src="https://unpkg.com/swiper/swiper-bundle.min.js"
-
     / Magnific Popup 写真をクリックして拡大、ギャラリー機能
     link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"
     script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"
-    = stylesheet_link_tag "magnific-popup-custom"
+    = stylesheet_link_tag    "magnific-popup-custom"
     = javascript_include_tag "magnific-popup-custom"
-
-    // 画像へのfilter効果
-    // 使用例 https://bansal.io/filters-css
-    link href="https://unpkg.com/filters.css" rel="stylesheet"
 
     / このサイトのためのスタイルシートを読み込む (style.cssを読み込む)
     = stylesheet_link_tag "style"
@@ -62,8 +63,8 @@ html
     = partial 'header'
 
     / この = yield が、index.html.slim等、各々の内容に置き換えられる
-    / .ui.container
-    = yield
+    main
+      = yield
 
     / 部分ファイル _footer.slim を読み込む
     = partial 'footer'

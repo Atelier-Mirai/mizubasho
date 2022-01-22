@@ -1,9 +1,8 @@
 /* ヘッダー */
-// header {
 .ui.top.fixed.menu {
   grid-row: head;
 
-  justify-self: center;
+  justify-self: start;
   align-self: center;
   .logo {
     text-align: center;
@@ -20,12 +19,5 @@
         vertical-align: text-bottom;
       }
     }
-  }
-}
-
-/* デスクトップ版 */
-@media(min-width: 768px) {
-  header {
-    justify-self: start;
   }
 }

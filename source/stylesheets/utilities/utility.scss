@@ -2,8 +2,10 @@
   調整用のクラス
   margin、padding、font-size、colorなどを付与するのに使用
 =============================================================================*/
-@import "iro";
-@import "display";
+
+@import "wa_no_iro12";
+
+@import "media_query";
 @import "mixin";
 @import "spacing";
 @import "text";

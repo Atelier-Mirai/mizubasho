@@ -3,40 +3,28 @@
   リセットCSS、NormarizeCSSなどの、すべてのベースとなるCSS
 =============================================================================*/
 
-/*
-  modern-css-reset.css
+/* modern-css-reset.css
 -----------------------------------------------------------------------------*/
+/* CDN が提供されているので、直接、layouts/top.slim に 書くことも出来る */
+/* <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css" /> */
 @import 'modern-css-reset';
 
-/*
-  レスポンシブな文字サイズ 今すぐ使えるCSSレシピブック 96頁より
+/* 2021年に最適なfont-familyの書き方 https://ics.media/entry/200317/
 -----------------------------------------------------------------------------*/
-html {
-  font-size: 14px;
-  @media (min-width: 320px) {
-    font-size: calc( (18 - 14) * ((100vw - 320px) / (960 - 320)) + 14px);
-  }
-  @media (min-width: 960px) {
-    font-size: 18px;
-  }
-}
-
-/*
-  2020年に最適なfont-familyの書き方
-  https://ics.media/entry/200317/
------------------------------------------------------------------------------*/
-// M PLUS 1p
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap');
-
-// font-family
-$font-family: "M PLUS 1p",
-              "Helvetica Neue",
+$font-family: "Helvetica Neue",
               Arial,
               "Hiragino Kaku Gothic ProN",
               "Hiragino Sans",
               Meiryo,
               sans-serif;
 
-html {
+body {
   font-family: $font-family !important;
 }
+
+// Google Fonts
+// M PLUS 1p (丸ゴシック体) の使用
+// @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap');
+// body {
+//   font-family: "M PLUS 1p", sans-serif;
+// }

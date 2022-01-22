@@ -8,8 +8,8 @@
 | CSS設計              | FLOU        |
 | CSSフレームワーク    | Fomantic UI |
 
-[CSSグリッドで作る HTML5&CSS3 レッスンブック](https://www.amazon.co.jp/gp/product/4802611897/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=4802611897&linkCode=as2&tag=ateliermira05-22&linkId=d9a444d6a2c93e24e44eb0b3bd6d3981)
-をもとにした、トップページの例を実装済。
+[CSSグリッドで作る HTML5&CSS3 レッスンブック](https://www.amazon.co.jp/gp/product/4802611897)
+をもとに作成
 
 ## スタートガイド
 

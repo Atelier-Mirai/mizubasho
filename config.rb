@@ -1,56 +1,55 @@
+# JavaScript圧縮用ライブラリを読み込む
 require "uglifier"
 
-# 自動再読み込み
+# コード変更すると、自動再読み込みされる
 activate :livereload
 
 # 相対URLを使う
 activate :relative_assets
 set :relative_links, true
 
-# ベンダープリフィックス付与
+# ベンダープリフィックスを自動的に付与する
 activate :autoprefixer do |prefix|
   prefix.browsers = "last 2 versions"
 end
 
-# レイアウト
-set :layout, 'site'
-page 'index.html', layout: 'top'
-page 'no_layout.html', layout: false
+# レイアウトファイルの指定
+set :layout, "site"
+page "index.html", layout: "top"
+# page "no_layout.html", layout: false
 
 # ビルド時の設定
 configure :build do
-  # HTML 圧縮
+  # HTML圧縮
   activate :minify_html
-  # CSS 圧縮
+  # CSS圧縮
   activate :minify_css
-  # JavaScript 圧縮
+  # JavaScript圧縮
   activate :minify_javascript,
     compressor: proc {
       ::Uglifier.new(
-        :mangle => {:toplevel => true},
-        :compress => {:unsafe => true},
-        :harmony => true
+        mangle: { toplevel: true },
+        compress: { unsafe: true },
+        harmony: true
       )
     }
-  # イメージ 圧縮
+  # イメージ圧縮
   activate :imageoptim
-  # アセットファイルの URL にハッシュを追加
+  # アセットファイルのURLにハッシュを追加
   activate :asset_hash
-  # テキストファイルの gzip 圧縮
+  # テキストファイルのgzip圧縮
   activate :gzip
 end
 
 # Slim の設定
 set :slim, {
-  # デバック用に html をきれいにインデントし属性をソートしない
+  # デバック用にhtmlをきれいにインデントし属性をソートしない
+  # (html, css, javascript の圧縮も無効化すると、
+  #  学習用に読みやすいHTMLが出力される )
   # pretty: true, sort_attrs: false,
-
-  # 属性のショートカット
-  # Slim コード中、「&text name="user"」と書くと、
-  # <input type="text" name="user"> とレンダリングされる。
-  shortcut: {
-    '&' => {tag: 'input', attr: 'type' },
-    '#' => {attr: 'id'},
-    '.' => {attr: 'class'}
-  }
 }
+
+# 動的サイトの設定例
+# data.cats.each do |cat|
+#   proxy "/#{cat.name}.html", "/template.html", locals: { data: cat }, ignore: true
+# end

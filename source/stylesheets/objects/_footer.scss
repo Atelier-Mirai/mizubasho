@@ -1,152 +1,19 @@
 /*=============================================================================
   フッター
 =============================================================================*/
-//
-// /* フッター */
-// footer {
-//   grid-row: foot;
-//   // justify-self: center;
-//   // align-self: center;
-//   font-size: 15px;
-//   font-family: 'Dancing Script', cursive;
-//   background: $sakurairo;
-//   grid-column: 1 / -1;
-//
-//   display: grid;
-//   justify-content: center;
-//   align-items: center;
-//   p {
-//     text-align: center;
-//   }
-// }
-//
-// /* フッターのバー */
-// body.top::after {
-//   content: "";
-//   background-color: $sakurairo;
-//   grid-column: 1 / -1;
-//   grid-row: foot;
-//   z-index: -1;
-// }
-
-
-/*-----------------------------------------------------------------------------
-  モバイル版
------------------------------------------------------------------------------*/
-
-/*
-  フッター
------------------------------------------------------------------------------*/
-footer.footer {
+footer {
   grid-row: foot;
-  grid-column: 1 / -1;
-}
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  background: $kurohairo;
 
-footer.footer.mobile.only {
   p {
-    line-height: 2.5;
-    background: $kurohairo;
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    justify-self: center;
+    align-self: center;
+
     color: $sakurairo;
-    text-align: center;
-  }
-}
-
-/*-----------------------------------------------------------------------------
-  デスクトップ版
------------------------------------------------------------------------------*/
-@media(min-width: 768px) {
-  footer.footer.computer.only {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-    // margin: 0 -20px;
-
-    /* 美しいグラデーションをCSSで実装 */
-    /* https://www.webcreatorbox.com/tech/css-gradient */
-    background:
-      linear-gradient(-45deg, rgba(246, 255, 0, .8), rgba(255, 0, 161, .8)) fixed,
-      image-url('sea_033.jpg') fixed;
-      background-size: cover;
-
-
-    .footer_nav {
-      grid-row: 1;
-      grid-column: 1;
-      justify-self: center;
-      align-content: center;
-      display: grid;
-      grid-template-columns: 2fr 4fr;
-
-      a.logo {
-        text-decoration: none;
-        font-size: 20px;
-        color: $utsushiiro;
-        font-family: 'Dancing Script', cursive;
-        img {
-          // display: inline;
-          margin-right: 0.5rem;
-          width: 60px;
-          height: 60px;
-          // vertical-align: text-bottom;
-          // vertical-align: text-top;
-        }
-      }
-
-      ul {
-        grid-column: 2;
-        justify-self: end;
-
-        list-style: none;
-        padding: 0;
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        grid-template-rows:    repeat(1, 1fr);
-        gap: 25px;
-
-        li {
-          background-color: $kurohairo;
-          border-radius: 0%;
-          display: grid;
-          align-items: center;
-          justify-content: center;
-          width: 64px;
-          height: 64px;
-          transform: rotate(45deg);
-          overflow: hidden;
-          &:hover {
-            background: $botaniro;
-          }
-          a {
-            transform: rotate(-45deg);
-            text-decoration: none;
-            font-size: 14px;
-            color: $sakurairo;
-            text-align: center;
-          }
-        }
-      }
-    }
-
-    .address {
-      grid-row: 2;
-      justify-self: center;
-      margin: 1rem 0;
-      p {
-        text-align: center;
-        a {
-          font-size: larger;
-        }
-      }
-    }
-
-    // 一番下の著作権表示
-    & > p {
-      grid-row: 3;
-      // margin: 0 -20px 0 -20px;
-      line-height: 2.5;
-      background: $kurohairo;
-      color: $sakurairo;
-      text-align: center;
-    }
   }
 }

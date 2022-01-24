@@ -34,7 +34,7 @@ configure :build do
       )
     }
   # イメージ圧縮
-  activate :imageoptim
+  # activate :imageoptim
   # アセットファイルのURLにハッシュを追加
   activate :asset_hash
   # テキストファイルのgzip圧縮
@@ -42,14 +42,14 @@ configure :build do
 end
 
 # Slim の設定
-set :slim, {
-  # デバック用にhtmlをきれいにインデントし属性をソートしない
-  # (html, css, javascript の圧縮も無効化すると、
-  #  学習用に読みやすいHTMLが出力される )
-  # pretty: true, sort_attrs: false,
-}
+# set :slim, {
+#   # デバック用にhtmlをきれいにインデントし属性をソートしない
+#   # (html, css, javascript の圧縮も無効化すると、
+#   #  学習用に読みやすいHTMLが出力される )
+#   pretty: true, sort_attrs: false
+# }
 
 # 動的サイトの設定例
-# data.cats.each do |cat|
-#   proxy "/#{cat.name}.html", "/template.html", locals: { data: cat }, ignore: true
+# data.cats.each do |neko|
+#   proxy "/#{neko.name}.html", "/neko_template.html", locals: { neko_data: neko }, ignore: true
 # end

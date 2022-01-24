@@ -4,22 +4,27 @@ title: さくら商会 - Kitchen Sink
 
 h2 Kitchen Sink
 p コード使用例 いろいろ
+
 h3 リンクヘルパー
 = link_to "トップ", "index.html"
 = link_to "ドキュメントを読む", "https://middlemanapp.com/jp/basics/templating_language/", target: "_blank"
 hr
+
 h3 イメージヘルパー
 = tag :img, src: "images/logo.png"
 = image_tag "logo.png"
 = image_tag 'logo.png', width: 100, class: 'logo', alt: 'ロゴ'
 hr
+
 h3 コンテンツタグ
 = content_tag :p, class: "message" do
   | おはようございます
 hr
+
 h3 メールリンク
 = mail_to 'fake@faker.com', "Fake Email Link", cc: "test@demo.com"
 hr
+
 h3 フォームタグ
 = form_tag '/destroy', class: 'ui form', method: 'post' do
   .field
@@ -38,10 +43,12 @@ h3 フォームタグ
   .field
     = submit_tag "削除", class: 'ui primary button'
 hr
+
 h3 lorem センテンス
 = lorem.sentences 5
 = lorem.date
 hr
+
 h3 iroha イメージ(lorem イメージと同様)
 = image_tag iroha.image('200x100')
 = image_tag iroha.image('200x100', background_color: '333', color: 'fff')
@@ -59,11 +66,7 @@ ruby:
 = table_of_users(users)
 
 h3 カスタムヘルパーメソッドと、データファイルの使用例
-h4 その１
-= book_intro(data.book[0])
-h4 その２
-= book_intro(data.book[0], format: :description)
-
+= introduce(data.books[0])
 
 h3 文例
 = iroha.tango

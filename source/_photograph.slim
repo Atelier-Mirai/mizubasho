@@ -69,13 +69,13 @@
     - data.doubutsu.each do |kemono|
       = partial "gallery", locals: kemono
 
-  // データファイル(data/doubutsu.yml)と、カスタムヘルパーを使った例
+  // データファイル(data/doubutsu.yml)と、カスタムヘルパを使った例
   h3 写真展 その8
   .gallery
     - data.doubutsu.each do |kemono|
       = animal_photo kemono
 
-  // データファイル(data/doubutsu.yml)と、カスタムヘルパーを使った例
+  // データファイル(data/doubutsu.yml)と、カスタムヘルパを使った例
   // 全てをカスタムヘルパーで生成する例
   h3 写真展 その9
-  = animal_photo2
+  = animals_photo

@@ -33,8 +33,6 @@ configure :build do
         harmony: true
       )
     }
-  # イメージ圧縮
-  # activate :imageoptim
   # アセットファイルのURLにハッシュを追加
   activate :asset_hash
   # テキストファイルのgzip圧縮

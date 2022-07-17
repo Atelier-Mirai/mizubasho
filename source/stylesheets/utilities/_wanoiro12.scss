@@ -1,3 +1,7 @@
+/*=============================================================================
+  和の色 12色
+=============================================================================*/
+
 $kyohiiro:          #ff251e; // 京緋色(きょうひいろ)
 $shinonomeiro:      #f19072; // 東雲色(しののめいろ)
 $nanohanairo:       #ffec47; // 菜の花色(なのはないろ)
@@ -12,7 +16,10 @@ $nibiiro:           #9ea1a3; // 鈍色(にびいろ)
 $kurohairo:         #0d0d0d; // 黒羽色(くろはいろ)
 
 $sakurairo:         #fef4f4; // 桜色(さくらいろ)
+$harukazeiro:       transparent; // 春風色(はるかぜいろ)
 $natsukazeiro:      transparent; // 夏風色(なつかぜいろ)
+$akikazeiro:        transparent; // 秋風色(あきかぜいろ)
+$fuyukazeiro:       transparent; // 冬風色(ふゆかぜいろ)
 
 $colors: (
   kyohiiro:          #ff251e, // 京緋色(きょうひいろ)
@@ -29,7 +36,10 @@ $colors: (
   kurohairo:         #0d0d0d, // 黒羽色(くろはいろ)
 
   sakurairo:         #fef4f4, // 桜色(さくらいろ)
-  natsukazeiro:      transparent // 夏風色(なつかぜいろ)
+  harukazeiro:       transparent, // 春風色(はるかぜいろ)
+  natsukazeiro:      transparent, // 夏風色(なつかぜいろ)
+  akikazeiro:        transparent, // 秋風色(あきかぜいろ)
+  fuyukazeiro:       transparent // 冬風色(ふゆかぜいろ)
 );
 
 @each $name, $value in $colors {

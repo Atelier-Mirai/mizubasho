@@ -24,7 +24,7 @@ body.top main {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
-  .post01     { grid-row: 1; }
+  .post       { grid-row: 1; }
   .photograph { grid-row: 2; }
 }
 

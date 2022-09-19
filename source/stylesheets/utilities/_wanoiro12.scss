@@ -42,6 +42,7 @@ $colors: (
   fuyukazeiro:       transparent // 冬風色(ふゆかぜいろ)
 );
 
+// 文字色と背景色クラス
 @each $name, $value in $colors {
   .#{$name} {
     color: $value !important;

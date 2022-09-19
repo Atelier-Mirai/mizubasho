@@ -1,0 +1,36 @@
+/* CSS グリッドによる ページ全体の配置
+---------------------------------------------------------------------*/
+body.top {
+  display: grid;
+  grid-template-columns: 20px 1fr 20px;
+  grid-template-rows: [header] 120px
+                      [hero]   auto
+                      [omoide] auto
+                      [footer] 66px;
+  row-gap: 20px;
+}
+
+body.top > * {
+  grid-column: 2 / -2;
+}
+
+body.top header {
+  grid-row: header;
+}
+
+body.top .hero {
+  grid-row: hero;
+  grid-column: 1 / -1;
+  @media(min-width: 768px) {
+    margin-top: -20px;
+  }
+}
+
+body.top .omoide {
+  grid-row: omoide;
+}
+
+body.top footer {
+  grid-row: footer;
+  grid-column: 1 / -1;
+}

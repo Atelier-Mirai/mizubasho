@@ -1,0 +1,29 @@
+/* ヒーローイメージ
+---------------------------------------------------------------------*/
+.hero {
+  figure img {
+    object-fit: cover;
+    width: 100%;
+    height: calc(100vh - 120px);
+    @media(min-width: 768px){
+      max-height: 50vh;
+    }
+  }
+
+  h1 {
+    margin-top: 0.5em;
+    @media(min-width: 768px){
+      margin-top: 5vh;
+    }
+    padding: 0 10vw;
+    span.text {
+      display: block;
+      font-size: larger;
+      @media(min-width: 768px){
+        line-height: 1.75;
+      }
+    }
+
+    writing-mode: vertical-rl;
+  }
+}

@@ -1,0 +1,33 @@
+/*ナビゲーションメニュー
+---------------------------------------------------------------------*/
+nav {
+  grid-row: header;
+  justify-self: center;
+  align-self: end;
+
+  @media (min-width: 768px) {
+    justify-self: end;
+    align-self: center;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 20px;
+
+    li a {
+      color: $kurohairo;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: bold;
+
+      &:hover {
+        color: $shinonomeiro;
+      }
+    }
+  }
+}

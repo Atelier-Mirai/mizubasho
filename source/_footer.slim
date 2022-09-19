@@ -1,3 +1,8 @@
-footer
+footer#footer
   p
-    | Copyright (C) 令和四年 さくら商会 All rights reserved.
+    | © 令和四年 水芭蕉
+    = link_to "#", id: "page_top" do
+      span
+        i.fas.fa-angle-double-up.fa-lg.fa-fw
+
+= javascript_include_tag 'page_top.js'

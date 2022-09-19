@@ -1,46 +1,36 @@
-/*=====================================================================
-  写真の枠とその効果
-=====================================================================*/
-
-/* frame  クラスに対する指定を行う */
-.frame {
-  border: solid 8px $sakurairo;       /* 桜色の枠線を付けます */
-  box-shadow: 0 0 0 1px #ccc,         /* 箱に灰色と黒い影を付けます */
+/* 写真の枠
+---------------------------------------------------------------------*/
+.frame img {
+  border: solid 8px $sakurairo;
+  box-shadow: 0 0 0 1px #ccc,
               1px 3px 8px 0 #25252555;
-  margin-bottom: 0.5em;               /* 下に少し間隔を取ります */
+  margin-bottom: 0.5em;
 }
 
-/* 写真をセピア色にする */
-.sepia.frame {
+.sepia.frame img {
   filter: sepia(90%);
 }
 
-/* 写真を白黒にする */
-.monochrome.frame {
+.monochrome.frame img {
   filter: grayscale(90%);
 }
 
-/* 写真をぼかす */
-.blur.frame {
+.blur.frame img {
   filter: blur(3px);
 }
 
-/* 写真の色を反転させる */
-.invert.frame {
+.invert.frame img {
   filter: invert(75%);
 }
 
-/* 写真を少し透明にする */
-.opacity.frame {
+.opacity.frame img {
   filter: opacity(67%);
 }
 
-/* 写真を右下に少し回転する */
-.rotate3 {
+.rotate3 img {
   transform: rotate(3deg)
 }
 
-/* 写真を右上に少し回転する */
-.rotate-3 {
+.rotate-3 img {
   transform: rotate(-3deg)
 }

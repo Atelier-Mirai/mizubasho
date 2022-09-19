@@ -1,31 +1,31 @@
 ---
-title: さくら商会 - Kitchen Sink
+title: Kitchen Sink
 ---
 
-h2 Kitchen Sink
+h1 Kitchen Sink
 p コード使用例 いろいろ
 
-h3 リンクヘルパー
+h2 リンクヘルパー
 = link_to "トップ", "index.html"
 = link_to "ドキュメントを読む", "https://middlemanapp.com/jp/basics/templating_language/", target: "_blank"
 hr
 
-h3 イメージヘルパー
+h2 イメージヘルパー
 = tag :img, src: "images/logo.webp"
 = image_tag "logo.webp"
-= image_tag 'logo.webp', width: 100, class: 'logo', alt: 'ロゴ'
+= image_tag 'logo.webp', class: 'logo', alt: 'ロゴ'
 hr
 
-h3 コンテンツタグ
+h2 コンテンツタグ
 = content_tag :p, class: "message" do
   | おはようございます
 hr
 
-h3 メールリンク
+h2 メールリンク
 = mail_to 'fake@faker.com', "Fake Email Link", cc: "test@demo.com"
 hr
 
-h3 フォームタグ
+h2 フォームタグ
 = form_tag '/destroy', class: 'ui form', method: 'post' do
   .field
     = label_tag :username, class: 'username'
@@ -44,19 +44,19 @@ h3 フォームタグ
     = submit_tag "削除", class: 'ui primary button'
 hr
 
-h3 lorem センテンス
+h2 lorem センテンス
 = lorem.sentences 5
 = lorem.date
 hr
 
-h3 iroha イメージ(lorem イメージと同様)
+h2 iroha イメージ(lorem イメージと同様)
 = image_tag iroha.image('200x100')
 = image_tag iroha.image('200x100', background_color: '333', color: 'fff')
 = image_tag iroha.image('200x100', random_color: true)
 = image_tag iroha.image('200x100', text: 'Hello')
 = image_tag placekitten(200)
 
-h3 カスタムヘルパーメソッドの使用例
+h2 カスタムヘルパーメソッドの使用例
 ruby:
   users = [
     { family_name: '山田', given_name: '太郎', gender: 'male', admin: true},
@@ -65,10 +65,10 @@ ruby:
   ]
 = table_of_users(users)
 
-h3 カスタムヘルパーメソッドと、データファイルの使用例
+h2 カスタムヘルパーメソッドと、データファイルの使用例
 = introduce(data.books[0])
 
-h3 文例
+h2 文例
 = iroha.tango
 br
 = iroha.tango(10)
@@ -82,10 +82,10 @@ br
 = iroha.danraku(10)
 br
 
-h3 日付
+h2 日付
 = iroha.hiduke
 
-h3 人名
+h2 人名
 = iroha.shimei
 br
 = iroha.namae
@@ -94,5 +94,5 @@ br
 br
 = iroha.onna
 
-h3 メールアドレス
+h2 メールアドレス
 = iroha.email

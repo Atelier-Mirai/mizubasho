@@ -1,4 +1,7 @@
-/* mixin */
+/* 各種 mixin
+---------------------------------------------------------------------*/
+
+// リンク表示
 @mixin link_style($color: $kurohairo, $font-size: 14px){
   color: $color;
   font-size: $font-size;

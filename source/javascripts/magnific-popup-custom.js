@@ -1,7 +1,7 @@
-$(function() {
+$(() => {
   $('.gallery').each(function(){
     $(this).magnificPopup({
-      /* 基本設定いろいろ */
+      // 基本設定いろいろ
       delegate: 'a',
       type: 'image',
       tLoading: 'Loading image #%curr%...',
@@ -17,17 +17,18 @@ $(function() {
       },
       image: {
         tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
-        titleSrc: function(item) {
-          return item.el.attr('title') + '<small>by Marsel Van Oosten</small>';
+        titleSrc: (item) => {
+          // 写真撮影者を追加
+          return item.el.attr('title') + '<small>by nahiro37</small>';
         }
       },
-      /* クリックしたときにズームアップするための設定 */
+      // クリック時の拡大効果設定
       mainClass: 'mfp-with-zoom',
       zoom: {
         enabled: true,
         duration: 300,
         easing: 'ease-in-out',
-        opener: function(openerElement) {
+        opener: (openerElement) => {
           return openerElement.is('img') ? openerElement : openerElement.find('img');
         }
       }

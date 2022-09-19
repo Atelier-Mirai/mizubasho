@@ -1,27 +1,22 @@
-/*=============================================================================
-  テキストの為の飾り付け
-=============================================================================*/
-
-/* 左寄せ指定
+/* テキスト装飾
 -----------------------------------------------------------------------------*/
+
+// 左寄せ
 .lefted.text {
   text-align: left !important;
 }
 
-/* 中央そろえ指定
------------------------------------------------------------------------------*/
+// 中央揃え
 .centered.text {
   text-align: center !important;
 }
 
-/* 右寄せ指定
------------------------------------------------------------------------------*/
+// 右寄せ
 .righted.text {
   text-align: right !important;
 }
 
-/* 大きさ指定
------------------------------------------------------------------------------*/
+// 大きさ
 $sizes: (
   mini:    0.4rem,
   tiny:    0.5rem,
@@ -39,15 +34,12 @@ $sizes: (
   }
 }
 
-/* リードテキスト
------------------------------------------------------------------------------*/
+// リードテキスト
 .lead.text {
   font-size: 1.1rem;
 }
 
-/* 上下に金色の線の見出し
-  CSS見出しデザイン参考100選
-  https://jajaaan.co.jp/css/css-headline/
+/* 上下に金色の線の見出し https://jajaaan.co.jp/css/css-headline/
 -----------------------------------------------------------------------------*/
 .gold.title {
   position: relative;
@@ -73,16 +65,15 @@ $sizes: (
   bottom: 0;
 }
 
-/* 横に黒色の線の見出し
-  CSSのコピペだけ！おしゃれな見出しのデザイン例まとめ68選
-  https://saruwakakun.com/html-css/reference/h-design
+/* 横に銀色の線の見出し https://saruwakakun.com/html-css/reference/h-design
 -----------------------------------------------------------------------------*/
 .silver.title {
   position: relative;
   text-align: center;
   width: 100%;
-  margin-bottom: 1rem; }
-  .silver.title span {
+  margin-bottom: 1rem;
+
+  span {
     color: #0d0d0d;
     background-image: linear-gradient(-45deg, #333 0%, #868888 20%, #d8dcdc 34%, white 53%, #666 100%);
     text-shadow: 0 0 7px #fff, 0 0 7px #fff, 0 0 7px #fff, 0 0 7px #fff, 0 0 7px #fff, 0 0 7px #fff, 0 0 7px #fff, 0 0 7px #fff;
@@ -91,32 +82,43 @@ $sizes: (
     font-weight: normal;
     line-height: 1.5;
     display: inline-block;
-    width: calc(100% - 40px); }
+    width: calc(100% - 40px);
+  }
+}
+
 @media (min-width: 768px) {
   .sliver.title span {
-    width: 400px; }
-  .silver.title::before,
-  .silver.title::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    display: inline-block;
-    width: calc((100% - 440px) / 2);
-    max-width: 440px;
-    height: 3px;
+    width: 400px;
   }
-  .silver.title::before {
-    left: 0; }
-  .silver.title::after {
-    right: 0; } }
 
-/* 文字を光りながら出現させるためのCSS
+  .silver.title {
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      display: inline-block;
+      width: calc((100% - 440px) / 2);
+      max-width: 440px;
+      height: 3px;
+    }
+
+    &::before {
+      left: 0;
+    }
+
+    &::after {
+      right: 0;
+    }
+  }
+}
+
+/* 文字を光りながら出現させる 動くWebデザインアイディア帳
 -----------------------------------------------------------------------------*/
 .glow.text span {
   opacity: 0;
 }
 
-/* アニメーションで透過度を0から1に変化させ、text-shadowをつける */
+// アニメーションで透過度を0から1に変化させ、text-shadowをつける
 .glow.text.shine span {
   animation: glow_anime_on 1s ease-out forwards;
 }
@@ -124,11 +126,11 @@ $sizes: (
 @keyframes glow_anime_on {
     0% { opacity:0; text-shadow: 0 0    0 #fff, 0 0    0 #fff; }
    50% { opacity:1; text-shadow: 0 0 10px #fff, 0 0 15px #fff; }
-  100% { opacity:1; text-shadow: 0 0    0 #fff, 0 0    0 #fff; }
+  99% { opacity:1; text-shadow: 0 0    0 #fff, 0 0    0 #fff; }
+  100% { opacity:1; text-shadow: none; }
 }
 
-/* グラデーション
-  CSSでテキストを彩る装飾サンプル集 https://1-notes.com/css-text-design/
+/* グラデーション https://1-notes.com/css-text-design/
 -----------------------------------------------------------------------------*/
 .rainbow.gradation.text {
   color: transparent;
@@ -144,11 +146,26 @@ $sizes: (
   background-clip: text;
 }
 
-/* 文字にグラデーションを付ける方法 https://kouhekikyozou.com/css_text_gradation
+/* グラデーション https://kouhekikyozou.com/css_text_gradation
 -----------------------------------------------------------------------------*/
 .gold.gradation.text {
   color: transparent;
-  background: linear-gradient(90deg, #a38131 0%, #e7c76d 33%, #ffe6c5 62%, #e3c05d 83%, #9d874e 100%);
+  background: linear-gradient(135deg, #a38131 0%, #e7c76d 33%, #ffe6c5 62%, #e3c05d 83%, #9d874e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.silver.gradation.text {
+  color: transparent;
+  background: linear-gradient(90deg, #333 0%, #868888 20%, #d8dcdc 34%, white 53%, #666 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+// chrome
+.silver.gradation.text span {
+  color: transparent;
+  background: linear-gradient(90deg, #333 0%, #868888 20%, #d8dcdc 34%, white 53%, #666 100%);
   -webkit-background-clip: text;
   background-clip: text;
 }

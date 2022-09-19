@@ -4,8 +4,14 @@ html
     meta charset="utf-8"
     meta name="viewport" content="width=device-width"
     title
-      = current_page.data.title || "さくら商会"
-    = stylesheet_link_tag "style"
+      = current_page.data.title || "水芭蕉"
+
+    / 簡単に見栄えの良いページを作るためのスタイルシート
+    / link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css"
+
+    / スタイルシートやスクリプトファイルを読み込む
+    / = stylesheet_link_tag "style"
+    / = javascript_include_tag "site"
 
   body
     = yield
